@@ -1,5 +1,8 @@
 # Тестовое задание для Brand Analytics
 
+Посмотреть результат:
+[https://wraaap.github.io/test-brand-analytics/](https://wraaap.github.io/test-brand-analytics/)
+
 ## Описание
 Необходимо выполнить вёрстку формы из макета:
 https://zpl.io/AOjzLro
