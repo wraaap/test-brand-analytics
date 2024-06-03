@@ -1,0 +1,34 @@
+:root {
+    --container-width: 100vw;
+    --container-padding: 20px;
+
+    // Цвет фона у блока с формой
+    --main-block-color: #f5f7fa;
+    // Цвет меню и футера
+    --dark-block-color: #323a44;
+    // Цвет активного пункта меню и заголовков
+    --dark-accen-color: #292f37;
+    // Основйной текст на странице
+    --text-color: #4c515c;
+    // Цвет светлого текста
+    --grey-text-color: #979ca9;
+    // Фон активного элемента в левом сайдбаре
+    --grey-bg-color: #edeeef;
+    // Серый фон для селекта
+    --grey-select-bg-color: #f6f6f7;
+    // Цвет рамки у полей ввода
+    --grey-border-color: #cbcfd8;
+    // Цвет рамки у полей ввода
+    --grey-border-checkbox-color: #babdc7;
+    // Цвета элементов
+    --blue-color: #5b85ce;
+    --blue-link-color: #4870b7;
+    --blue-light-color: #d8e4f9;
+    --green-color: #8fc144;
+    --red-color: #cf6662;
+    --white-color: #fff;
+
+    --laptop-size: 1199px;
+    --tablet-size: 959px;
+    --mobile-size: 599px;
+}

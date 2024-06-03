@@ -1,0 +1,61 @@
+html,
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--main-block-color);
+    color: var(--text-color);
+    font-family: 'Gravity', sans-serif;
+    font-size: 13px;
+}
+
+a {
+    color: var(--blue-link-color);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.icon {
+    fill: currentColor;
+}
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+.page-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex: 1;
+    gap: 20px;
+}
+
+.heading {
+    font-weight: bold;
+    color: var(--dark-accen-color);
+}
+
+.global-heading {
+    font-size: 20px;
+}
+
+.block-heading {
+    font-size: 17px;
+}
+
+.form-heading {
+    font-size: 15px;
+    padding-bottom: 12px;
+}

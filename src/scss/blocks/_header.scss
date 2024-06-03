@@ -1,0 +1,110 @@
+.header {
+    background-color: var(--dark-block-color);
+    min-height: 52px;
+    padding: 0 20px;
+
+    // .container {
+    //     align-items: stretch;
+    // }
+
+    .logo {
+        min-width: 90.5px;
+        height: 100%;
+
+        a:hover {
+            opacity: 0.9;
+            transition: all 0.3s;
+        }
+    }
+
+    .logo-icon {
+        width: 90.5px;
+        height: 41px;
+    }
+
+    .header-menu {
+        height: 100%;
+    }
+
+    .header-menu-item {
+        display: block;
+    }
+
+    .header-menu-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .header-menu-link {
+        color: var(--grey-text-color);
+        font-size: 13px;
+        display: flex;
+        padding: 17px 23px 19px;
+        &:active,
+        &:hover {
+            background-color: var(--dark-accen-color);
+            transition: all 0.3s ease;
+        }
+        &:active {
+            font-weight: 700;
+            color: var(--white-color);
+        }
+    }
+
+    .message-count {
+        background: var(--red-color);
+        color: var(--white-color);
+        display: inline-block;
+        margin-top: -4px;
+        margin-left: 2px;
+        padding: 0px 2px 1px;
+        height: fit-content;
+        font-size: 9px;
+        font-weight: 700;
+        border-radius: 2px;
+    }
+
+    .profile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        min-width: 82px;
+        min-height: 100%;
+        &:hover {
+            background-color: var(--dark-accen-color);
+        }
+    }
+
+    .top-avatar {
+    }
+
+    .user-avatar {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+    }
+
+    .profile-arrow-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .arrow-select-down {
+        color: #edeeef;
+        width: 10px;
+        height: 6px;
+        transition: transform 0.3s;
+    }
+}
+
+// Временный стиль для демонстрации активного пункта меню
+.header-menu-link.active {
+    background-color: var(--dark-accen-color);
+    transition: all 0.3s ease;
+    font-weight: 700;
+    color: var(--white-color);
+}

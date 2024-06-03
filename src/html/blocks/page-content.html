@@ -1,0 +1,18 @@
+<div class="page-content">
+    <div class="global-heading heading">Редактирование подписки</div>
+    @@include('../form-blocks/form-block-info.html')
+    <form action="/server" method="POST" class="form-body">
+        @@include('../form-blocks/form-block-theme.html')
+        @@include('../form-blocks/form-block-report.html')
+        @@include('../form-blocks/form-block-format.html')
+        @@include('../form-blocks/form-block-filter.html')
+        @@include('../form-blocks/form-block-data.html')
+        <div class="action-form">
+            <div class="toggle">
+                <input type="checkbox" id="toggle" class="toggle-checkbox" name="toggle" checked>
+                <label for="toggle" class="toggle-label"></label>
+            </div>
+            <button class="form-button" type="submit">Сохранить изменения</button>
+        </div>
+    </form>
+</div>

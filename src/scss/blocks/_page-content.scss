@@ -1,0 +1,543 @@
+.page-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    //=============================================================================
+    // Блок со статусом результата
+    //=============================================================================
+
+    .form-block-info {
+        display: flex;
+        gap: 12px;
+        max-width: 772px;
+
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .icon-done {
+            color: var(--green-color);
+        }
+
+        .block-heading {
+            padding: 2px 0 8px;
+        }
+
+        .form-block-info-text {
+            font-size: 13px;
+        }
+    }
+
+    //=============================================================================
+    // Баловые настройки блока с формой
+    //=============================================================================
+
+    .form-block {
+        background-color: var(--white-color);
+        border-radius: 8px;
+        padding: 12px 20px 24px;
+    }
+
+    .form-body {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 772px;
+
+        .form-item {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 16px;
+        }
+
+        .form-item-heading {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        // Лейблы к полям формы ***********************************
+
+        .label {
+            font-size: 12px;
+            color: var(--grey-text-color);
+            display: block;
+            padding-bottom: 6px;
+            min-width: 20%; // если лейблов в одной строке больше 1 и один переполнен, чтобы остальные выглядели приемлемо
+        }
+
+        //=============================================================================
+        // Блок с темой
+        //=============================================================================
+
+        // Выпадающий список ***********************************
+
+        .select-theme-wrapper {
+            display: flex;
+            position: relative;
+            max-height: fit-content;
+
+            &::after {
+                content: url('../svg/arrow-select-down.svg');
+                width: 10px;
+                height: 6px;
+                display: flex;
+                position: absolute;
+                top: 50%;
+                right: 15px;
+                transform: translateY(-50%);
+                pointer-events: none;
+                fill: #cbcfd8;
+            }
+        }
+
+        .select {
+            appearance: none;
+            outline: none;
+            border-radius: 4px;
+            background-color: var(--white-color);
+            border: 1px solid var(--grey-border-color);
+            padding: 7px 32px 9px 12px;
+            width: 100%;
+            cursor: pointer;
+            color: var(--text-color);
+            opacity: 0.9;
+            font-size: 13px;
+
+            &.select-theme {
+                background-color: var(--grey-select-bg-color);
+            }
+
+            &:focus {
+                outline: none;
+                box-shadow: 0px 0px 3px 2px var(--blue-light-color);
+                transition: all 0.3s;
+            }
+        }
+
+        // Текстовое поле ***********************************
+
+        .textarea {
+            outline: none;
+            border-radius: 4px;
+            border: 1px solid var(--grey-border-color);
+            color: var(--text-color);
+            opacity: 0.9;
+            font-size: 13px;
+            padding: 7px 32px 9px 12px;
+            width: 100%;
+            height: 96px;
+            resize: none;
+
+            &::placeholder {
+                color: var(--text-color);
+                opacity: 1;
+            }
+
+            &:focus {
+                outline: none;
+                box-shadow: 0px 0px 3px 2px var(--blue-light-color);
+                transition: all 0.3s;
+            }
+        }
+
+        //=============================================================================
+        // Блок с настройкой времени получения отчета
+        //=============================================================================
+
+        // Радиокнопки ***********************************
+
+        .form-radio {
+            display: flex;
+            row-gap: 8px;
+            column-gap: 32px;
+            padding-top: 2px;
+            flex-wrap: wrap;
+
+            .form-radio-item label {
+                display: flex;
+                gap: 8px;
+                cursor: pointer;
+                &:hover {
+                    .custom-radio {
+                        border: solid 1px #9fa1aa;
+                    }
+                    .original-radio:checked + .custom-radio {
+                        border: solid 1px #2f5597;
+
+                        &::before {
+                            background-color: #2f5597;
+                        }
+                    }
+                }
+            }
+
+            .form-radio-text {
+                font-size: 13px;
+            }
+
+            .original-radio {
+                width: 0;
+                height: 0;
+                opacity: 0;
+                position: absolute;
+                z-index: -1;
+            }
+
+            .custom-radio {
+                display: inline-block;
+                min-width: 16px;
+                height: 16px;
+                border: solid 1px var(--grey-border-color);
+                border-radius: 50%;
+                background-color: var(--white-color);
+                position: relative;
+                transition: all 0.3s;
+
+                &::before {
+                    content: '';
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background-color: var(--blue-color);
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(0);
+                    transition: all 0.2s ease-in;
+                }
+            }
+
+            .original-radio:checked {
+                + .custom-radio {
+                    border: solid 1px var(--blue-color);
+                }
+
+                + .custom-radio::before {
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
+
+            .original-radio:focus + .custom-radio,
+            .original-radio:focus-visible + .custom-radio {
+                outline: none;
+                box-shadow: 0px 0px 3px 2px var(--blue-light-color);
+                transition: all 0.3s;
+            }
+        }
+
+        //=============================================================================
+        // Блок с настройкой фотмата отчета
+        //=============================================================================
+
+        .form-item-frequency {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            align-items: stretch;
+
+            > div {
+                width: 236px;
+                align-self: flex-end;
+            }
+        }
+
+        .frequency-report-time-selects {
+            display: flex;
+            gap: 12px;
+        }
+
+        .form-item-file-format {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+        }
+
+        .file-format {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 16px 8px 8px;
+
+            .icon-format-report {
+                width: 39px;
+                height: 42px;
+            }
+        }
+
+        .file-format-radio-item {
+            .original-radio {
+                width: 0;
+                height: 0;
+                opacity: 0;
+                position: absolute;
+                z-index: -1;
+            }
+            &:has(.original-radio:checked) {
+                background-color: var(--blue-light-color);
+                border-radius: 4px;
+                transition: all 0.3s;
+            }
+
+            &:not(:has(.original-radio:checked)):hover {
+                background-color: #edf3fd;
+                border-radius: 4px;
+                transition: all 0.3s;
+            }
+
+            .original-radio:focus + .file-format,
+            .original-radio:focus-visible + .file-format {
+                outline: none;
+                box-shadow: 0px 0px 3px 2px var(--blue-light-color);
+                transition: all 0.3s;
+                border-radius: 4px;
+            }
+        }
+
+        input.input {
+            outline: none;
+            border-radius: 4px;
+            background-color: var(--white-color);
+            border: 1px solid var(--grey-border-color);
+            padding: 7px 32px 9px 12px;
+            width: 100%;
+            cursor: pointer;
+            color: var(--text-color);
+            opacity: 0.9;
+            font-size: 13px;
+
+            &::placeholder {
+                color: var(--text-color);
+                opacity: 1;
+            }
+
+            &:focus {
+                outline: none;
+                box-shadow: 0px 0px 3px 2px var(--blue-light-color);
+                transition: all 0.3s;
+            }
+        }
+
+        //=============================================================================
+        // Блок с настройкой фильтра для отчета
+        //=============================================================================
+
+        .filter-tabs {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 4px;
+            color: var(--blue-color);
+
+            .filter-tab {
+                padding: 3px 10px 4px 10px;
+                display: inline-block;
+                cursor: pointer;
+                &.active {
+                    background-color: var(--blue-color);
+                    color: var(--white-color);
+                    border-radius: 11px;
+                    transition: all 0.3s;
+                }
+                &:not(.active):hover {
+                    background-color: #edf3fd;
+                    border-radius: 11px;
+                    transition: all 0.3s;
+                }
+            }
+
+            .filter-tab:focus-visible {
+                outline: none;
+                border-radius: 11px;
+                box-shadow: 0px 0px 3px 2px var(--blue-light-color);
+                transition: all 0.3s;
+            }
+        }
+
+        //=============================================================================
+        // Блок состав данных
+        //=============================================================================
+
+        .data-checkbox {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: min-content;
+            gap: 12px;
+
+            .checkbox-label {
+                display: flex;
+                gap: 10px;
+
+                &:not(:has(.original-checkbox:disabled)):hover {
+                    .original-checkbox:checked + .custom-checkbox {
+                        &::before {
+                            background-color: #2f5597;
+                        }
+                    }
+                }
+
+                &:hover {
+                    .custom-checkbox {
+                        border: solid 1px #9fa1aa;
+                    }
+                }
+            }
+
+            .original-checkbox {
+                width: 0;
+                height: 0;
+                opacity: 0;
+                position: absolute;
+                z-index: -1;
+            }
+
+            .custom-checkbox {
+                min-width: 16px;
+                height: 16px;
+                border-radius: 2px;
+                border: solid 1px var(--grey-border-checkbox-color);
+                background-color: var(--white-color);
+                display: flex;
+
+                &::before {
+                    content: '';
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 2px;
+                    border: none;
+                    background-color: var(--blue-color);
+                    background-image: url('../svg/check.svg');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    transform: scale(0);
+                    transition: all 0.2s;
+                }
+            }
+
+            .original-checkbox:disabled + .custom-checkbox {
+                &::before {
+                    content: '';
+                    min-width: 16px;
+                    height: 16px;
+                    border-radius: 2px;
+                    background-image: url('data:image/svg+xml;utf8,<svg width="10" height="7" viewBox="0 0 10 7" xmlns="http://www.w3.org/2000/svg"><path d="M8.95 1.05a1 1 0 0 1 0 1.414L4.707 6.707a.995.995 0 0 1-.53.277l-.118.014h-.118a.996.996 0 0 1-.648-.29L1.172 4.585a1 1 0 1 1 1.414-1.414L4 4.585 7.536 1.05a1 1 0 0 1 1.414 0z" fill="%23cbcfd8" fill-rule="evenodd"/></svg>');
+                    border: solid 1px var(--grey-border-color);
+                    background-color: var(--grey-select-bg-color);
+                    // opacity: 0.5;
+                    pointer-events: none;
+                }
+            }
+
+            .original-checkbox:checked {
+                + .custom-checkbox {
+                    border-color: transparent;
+                }
+
+                + .custom-checkbox::before {
+                    transform: scale(1);
+                }
+            }
+
+            .original-checkbox:focus + .custom-checkbox,
+            .original-checkbox:focus-visible + .custom-checkbox {
+                outline: none;
+                box-shadow: 0px 0px 3px 2px var(--blue-light-color);
+                transition: all 0.3s;
+            }
+        }
+
+        .filter-language {
+            margin-top: 8px;
+        }
+
+        //=============================================================================
+
+        // Тоггл *********************
+
+        .toggle-checkbox {
+            width: 0;
+            height: 0;
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
+        }
+        .toggle-label {
+            display: inline-block;
+            width: 32px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 20px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .toggle-label::before {
+            content: '';
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background-color: white;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            transition: 0.3s;
+        }
+
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: var(--green-color);
+        }
+
+        .toggle-checkbox:checked:hover + .toggle-label {
+            background-color: #81b533;
+        }
+        .toggle-checkbox:not(:checked):hover + .toggle-label {
+            background-color: #bdbdbd;
+        }
+
+        .toggle-checkbox:checked + .toggle-label::before {
+            transform: translateX(12px);
+        }
+
+        .toggle-checkbox:focus + .toggle-label,
+        .toggle-checkbox:focus-visible + .toggle-label {
+            outline: none;
+            box-shadow: 0px 0px 3px 2px var(--blue-light-color);
+            transition: all 0.3s;
+        }
+
+        .action-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        //=============================================================================
+
+        .form-button {
+            padding: 8px 16px;
+            border-radius: 4px;
+            background-color: var(--green-color);
+            color: var(--white-color);
+            width: fit-content;
+
+            &:hover {
+                background-color: #81b533;
+                transform: scale(1.01);
+                transition: all 0.3s ease-in;
+            }
+        }
+
+        .form-button:focus,
+        .form-button:focus-visible {
+            outline: none;
+            border-radius: 4px;
+            box-shadow: 0px 0px 3px 2px var(--blue-light-color);
+            transition: all 0.3s;
+        }
+    }
+}
